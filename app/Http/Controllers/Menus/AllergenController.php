@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Menus;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,8 +10,14 @@ class AllergenController extends Controller
 {
     public function index()
     {
-        return view('menu.allergen.index',[
-
-        ]);
+        $allergens=Menu::where('section','allergens')->get();
+        if($allergens){
+            return view('menu.allergen.index',[
+                'allergens'=>$allergens
+            ]);
+        }else{
+            return view('menu.allergen.index',[
+            ]);
+        }
     }
 }

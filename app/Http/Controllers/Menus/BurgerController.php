@@ -10,7 +10,6 @@ class BurgerController extends Controller
 {
     public function index()
     {
-        // $b = Menu::where('section', $section)->get(); , compact('burgesas')
 
         $burgers=Menu::where('section','burgers')->get();
         if($burgers){

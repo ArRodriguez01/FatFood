@@ -1,0 +1,139 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="text"],
+  input[type="checkbox"],
+  button[type="submit"] {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+
+  #tanuncios th {
+    text-align: center;
+  }
+
+  #tanuncios td.text-center {
+    text-align: center;
+  }
+
+  #tanuncios td input[type="text"] {
+    width: 100%;
+  }
+
+  #tanuncios td.td-actions {
+    text-align: right;
+  }
+
+  #tanuncios td.td-actions form {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  #tanuncios td.td-actions form button[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+  }
+
+  #tanuncios td.text-center img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  label {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  input {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+
+  table td:first-child {
+    max-width: 150px;
+  }
+
+  table td:first-child img {
+    width: 100%;
+    height: auto;
+  }
+
+  input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  button[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

@@ -10,10 +10,11 @@ class Menu extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idMenu',
         'name',
         'ingredientes',
         'section',
         'allergens',
+        'price',
+        'url'
     ];
 }

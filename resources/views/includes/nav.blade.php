@@ -15,26 +15,31 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="#">Carta</a></li>
-            <li><a href="#">Quienes Somos</a></li>
-            <li><a href="#">Contactanos</a></li>
+            @if (Auth::user())
+            <li><a href="{{route('cart.index')}}">Carrito</a></li>
+            @endif
+            <li><a aria-label="Carta" href="{{route('home')}}">Carta</a></li>
+            <li><a aria-label="Quienes somos" href="#">Quienes Somos</a></li>
+            <li><a aria-label="Contactanos" href="#">Contactanos</a></li>
+            @if(Auth::user() && Auth::user()->hasRole('admin'))
+            <li><a href="{{route('menu.index')}}">Gestionar Menu</a></li>
+            @endif
             <div class="dropdown">
                 <div class="dropdown-toggle">
                     <img id ="profile" src="{{ asset('images/profile.png') }}" alt="Icono de perfil">
                 </div>
                 @if(Auth::user())
                 <ul class="dropdown-menu">
-                    <li><a href="#">Perfil</a></li>
+                    <li><a href={{route('profile')}}>Perfil</a></li>
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <li><input type="submit" value="Cerrar sesión"></li>
-                    <form>
+                    <li><input aria-label="Cerrar sesión" type="submit" value="Cerrar sesión"></li>
+                    </form>
                 </ul>
                 @else
                 <ul class="dropdown-menu">
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
-                    <form>
+                    <li><a aria-label="Iniciar sesión" href="{{ route('login') }}">Login</a></li>
+                    <li><a aria-label="Registrarse" href="{{ route('register') }}">Register</a></li>
                 </ul>
                 @endif
             </div>

@@ -12,28 +12,39 @@
     @include('includes.nav')
     <div class="button-panel">
       <div class="button-row">
-        <a href={{route('drinks')}} id="butBeb">Bebidas</a>
-        <a href={{route('sides')}} id="butPat">Entrantes</a>
-        <a href={{route('meats')}} id="butCarn">Carnes</a>
+        <a aria-label="Bebidas"  href={{route('drinks')}} id="butBeb">Bebidas</a>
+        <a aria-label="Entrantes" href={{route('sides')}} id="butPat">Entrantes</a>
+        <a aria-label="Carnes a la brasa" href={{route('meats')}} id="butCarn">Carnes</a>
       </div>
       <div class="button-row">
-        <a href={{route('salads')}} id="butEns">Ensaladas</a>
-        <a href={{route('burgers')}} id="butHam">Hamburguesas</a>
-        <a href={{route('desserts')}} id="butPost">Postres</a>
+        <a aria-label="Ensaladas" href={{route('salads')}} id="butEns">Ensaladas</a>
+        <a aria-label="Hamburguesas" href={{route('burgers')}} id="butHam">Hamburguesas</a>
+        <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2>LIBRE DE ALERGENOS</h2></center>
+    <center><h2 aria-label="Seccion libre de alergenos">LIBRE DE ALERGENOS</h2></center>
 
+    @if(count($allergens)!=0)
+    @foreach ($allergens as $allergen)
     <div class="cajaMenu">
       <div class="container">
-        <img src="" alt="Descripción de la imagen" />
+        <img src="{{ $allergen->url}}" alt="Descripción de la imagen" />
         <div class="container2">
-          <p></p>
-          <p></p>
-          <button type="submit">Añadir</button>
+          <h1>{{ $allergen->name }}</h1>
+          <p>{{ $allergen->ingredientes }}</p>
+          <p>{{ $allergen->price }}€</p>
+          @if(Auth::user())
+          <form action="{{route('cart.add',$allergen->id)}}" method="GET">
+          <button  type="submit">Añadir</button>
+          </form>
+          @endif
         </div>
       </div>
     </div>
+    @endforeach
+    @else
+    <p>No hay menus por el momento</p>
+    @endif
     @include('includes.footer')
   </body>
 </html>

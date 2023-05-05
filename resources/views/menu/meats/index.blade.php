@@ -12,17 +12,17 @@
     @include('includes.nav')
     <div class="button-panel">
       <div class="button-row">
-        <a href={{route('drinks')}} id="butBeb">Bebidas</a>
-        <a href={{route('sides')}} id="butPat">Entrantes</a>
-        <a href={{route('burgers')}} id="butHam">Hamburguesas</a>
+        <a aria-label="Bebidas" href={{route('drinks')}} id="butBeb">Bebidas</a>
+        <a aria-label="Entrantes" href={{route('sides')}} id="butPat">Entrantes</a>
+        <a aria-label="Hamburguesas" href={{route('burgers')}} id="butHam">Hamburguesas</a>
       </div>
       <div class="button-row">
-        <a href={{route('salads')}} id="butEns">Ensaladas</a>
-        <a href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
-        <a href={{route('desserts')}} id="butPost">Postres</a>
+        <a aria-label="Ensaladas" href={{route('salads')}} id="butEns">Ensaladas</a>
+        <a aria-label="Libre de alergenos" href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
+        <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2>CARNES</h2></center>
+    <center><h2 aria-label="Seccion de carnes a la brasa">CARNES</h2></center>
 
     @if(count($meats)!=0)
     @foreach ($meats as $meat)
@@ -33,7 +33,7 @@
           <p>{{ $meat->name }}</p>
           <p>{{ $meat->ingredientes }}</p>
           @if(Auth::user())
-          <button type="submit">Añadir al carrito</button>
+          <button type="submit">Añadir</button>
           @endif
         </div>
       </div>

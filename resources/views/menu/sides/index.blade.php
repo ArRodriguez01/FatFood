@@ -12,17 +12,17 @@
     @include('includes.nav')
     <div class="button-panel">
       <div class="button-row">
-        <a href={{route('drinks')}} id="butBeb">Bebidas</a>
-        <a href={{route('burgers')}} id="butHam">Hamburguesas</a>
-        <a href={{route('meats')}} id="butCarn">Carnes</a>
+        <a aria-label="Bebidas" href={{route('drinks')}} id="butBeb">Bebidas</a>
+        <a aria-label="Hamburguesas" href={{route('burgers')}} id="butHam">Hamburguesas</a>
+        <a aria-label="Carnes a la brasa" href={{route('meats')}} id="butCarn">Carnes</a>
       </div>
       <div class="button-row">
-        <a href={{route('salads')}} id="butEns">Ensaladas</a>
-        <a href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
-        <a href={{route('desserts')}} id="butPost">Postres</a>
+        <a aria-label="Ensaladas" href={{route('salads')}} id="butEns">Ensaladas</a>
+        <a aria-label="Libre de alergenos" href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
+        <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2>ENTRANTES</h2></center>
+    <center><h2 aria-label="Seccion de entrantes">ENTRANTES</h2></center>
 
     @if(count($sides)!=0)
     @foreach ($sides as $side)
@@ -33,7 +33,9 @@
           <p>{{ $side->name }}</p>
           <p>{{ $side->ingredientes }}</p>
           @if(Auth::user())
-          <button type="submit">Añadir al carrito</button>
+          <form action="{{route('cart.add',$side->id)}}" method="GET">
+            <button  type="submit">Añadir</button>
+            </form>
           @endif
         </div>
       </div>

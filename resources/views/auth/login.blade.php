@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    <div class="contenedor">
+    <div class="contenedor" aria-label="Formulario para iniciar sesión">
         <img src="{{ asset('images/logo.png') }}">
         <form id="formulario" action="{{ route('login') }}" method="POST">
             @csrf
             <div class="formControl">
                 <label for="usuario">Email</label>
-                <input id="usuario" name="email" type="text">
+                <input aria-label="Introduce tu mail" id="usuario" name="email" type="text">
                 @error('email')
                 <span  role="alert">
                     <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
 
             <div class="formControl">
                 <label>Contraseña</label>
-                <input id="pass" name="password" type="password">
+                <input aria-label="Introduce tu contraseña" id="pass" name="password" type="password">
                 @error('password')
                         <span  role="alert">
                             <strong>{{ $message }}</strong>
@@ -34,9 +34,9 @@
 
             </div>
             @if (Route::has('password.request'))
-            <p id="msg"><a class="btn btn-link" href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</p></a>
+            <p aria-label="Has olvidado tu contraseña?" id="msg"><a class="btn btn-link" href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</p></a>
             @endif
-            <button id="button">Iniciar Sesión</button>
+            <button aria-label="Iniciar sesión" id="button">Iniciar Sesión</button>
         </form>
 
     </div>

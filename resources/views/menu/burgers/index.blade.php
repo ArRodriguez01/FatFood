@@ -12,14 +12,14 @@
     @include('includes.nav')
     <div class="button-panel">
       <div class="button-row">
-        <a href={{route('drinks')}} id="butBeb">Bebidas</a>
-        <a href={{route('sides')}} id="butPat">Entrantes</a>
-        <a href={{route('meats')}} id="butCarn">Carnes</a>
+        <a aria-label="Bebidas" href={{route('drinks')}} id="butBeb">Bebidas</a>
+        <a aria-label="Entrantes" href={{route('sides')}} id="butPat">Entrantes</a>
+        <a aria-label="Carnes a la brasa" href={{route('meats')}} id="butCarn">Carnes</a>
       </div>
       <div class="button-row">
-        <a href={{route('salads')}} id="butEns">Ensaladas</a>
-        <a href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
-        <a href={{route('desserts')}} id="butPost">Postres</a>
+        <a aria-label="Ensaladas" href={{route('salads')}} id="butEns">Ensaladas</a>
+        <a aria-label="Libre de alergenos" href={{route('allergen')}} id="butAlerg">Libre de alérgenos</a>
+        <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
     <center><h2>HAMBURGUESAS</h2></center>
@@ -33,7 +33,9 @@
           <p>{{ $burgesa->ingredientes }}</p>
           <p>{{ $burgesa->price }}€</p>
           @if(Auth::user())
-          <button type="submit">Añadir</button>
+          <form action="{{route('cart.add',$burgesa->id)}}" method="GET">
+          <button  type="submit">Añadir</button>
+          </form>
           @endif
         </div>
       </div>
