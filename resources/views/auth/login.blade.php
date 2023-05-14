@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="contenedor" aria-label="Formulario para iniciar sesión">
-        <img src="{{ asset('images/logo.png') }}">
+        <img src="{{ asset('images/logo1(1).png') }}">
         <form id="formulario" action="{{ route('login') }}" method="POST">
             @csrf
             <div class="formControl">
@@ -34,8 +34,9 @@
 
             </div>
             @if (Route::has('password.request'))
-            <p aria-label="Has olvidado tu contraseña?" id="msg"><a class="btn btn-link" href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</p></a>
+            <p aria-label="Has olvidado tu contraseña?" id="msg"><a class="btn btn-link" href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</p></a><br>
             @endif
+            <p aria-label="Has olvidado tu contraseña?" id="msg"><a class="btn btn-link" href="{{ route('register') }}">Hazte una cuenta</p></a>
             <button aria-label="Iniciar sesión" id="button">Iniciar Sesión</button>
         </form>
 

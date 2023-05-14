@@ -22,8 +22,8 @@
         <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2 aria-label="Seccion de entrantes">ENTRANTES</h2></center>
-
+    <h2 aria-label="Seccion de entrantes">ENTRANTES</h2>
+    <div class="menus">
     @if(count($sides)!=0)
     @foreach ($sides as $side)
     <div class="cajaMenu">
@@ -44,6 +44,7 @@
     @else
     <p>No hay menus por el momento</p>
     @endif
+    </div>
     @include('includes.footer')
   </body>
 </html>

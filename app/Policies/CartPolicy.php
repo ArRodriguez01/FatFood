@@ -47,6 +47,14 @@ class CartPolicy
         return false;
     }
 
+    public function destroy(User $user, Cart $cart): bool
+    {
+        if($user->hasRole('admin')){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Determine whether the user can delete the model.
      */

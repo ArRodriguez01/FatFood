@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('order');
             $table->string('address');
-            $table->string('payment');
+            $table->string('payment',30);
             $table->decimal('total');
             $table->timestamps();
         });

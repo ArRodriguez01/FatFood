@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="contenedor" aria-label="Formulario para registrarte">
-        <img src="{{ asset('images/logo.png') }}">
+        <img src="{{ asset('images/logo1(1).png') }}">
 
         <form id="formulario" action="{{ route('register') }}" method="POST">
             @csrf

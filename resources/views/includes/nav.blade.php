@@ -11,7 +11,7 @@
   <body>
     <nav>
         <div class="logo">
-          <img  src="{{ asset('images/logo_blanco.png') }}" alt="Logo de tu empresa">
+          <img  src="{{ asset('images/logo1(1).png') }}" alt="Logo de tu empresa">
         </div>
         <div class="menu">
           <ul>
@@ -19,10 +19,11 @@
             <li><a href="{{route('cart.index')}}">Carrito</a></li>
             @endif
             <li><a aria-label="Carta" href="{{route('home')}}">Carta</a></li>
-            <li><a aria-label="Quienes somos" href="#">Quienes Somos</a></li>
-            <li><a aria-label="Contactanos" href="#">Contactanos</a></li>
+            <li><a aria-label="Quienes somos" href="{{route('aboutus')}}">Quienes Somos</a></li>
             @if(Auth::user() && Auth::user()->hasRole('admin'))
             <li><a href="{{route('menu.index')}}">Gestionar Menu</a></li>
+            <li><a href="{{route('user.index')}}">Gestionar Usuarios</a></li>
+            <li><a href="{{route('cart.gestion')}}">Gestionar Pedidos</a></li>
             @endif
             <div class="dropdown">
                 <div class="dropdown-toggle">
@@ -30,7 +31,7 @@
                 </div>
                 @if(Auth::user())
                 <ul class="dropdown-menu">
-                    <li><a href={{route('profile')}}>Perfil</a></li>
+                    <li><a href="{{route('profile')}}">Perfil</a></li>
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <li><input aria-label="Cerrar sesión" type="submit" value="Cerrar sesión"></li>

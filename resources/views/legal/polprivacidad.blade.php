@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('includes.nav')
-    <b><center><h2>POLÍTICA DE PRIVACIDAD</h2></center></b>
+    <h2>POLÍTICA DE PRIVACIDAD</h2>
     <p>La Dirección / Órgano de Gobierno de FATFOOD  S.L. (en adelante, el responsable del tratamiento),
         asume la máxima responsabilidad y compromiso con el establecimiento, implementación y mantenimiento
         de la presente Política de Protección de Datos, garantizando la mejora continua del responsable del

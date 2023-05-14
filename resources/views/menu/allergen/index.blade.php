@@ -22,8 +22,8 @@
         <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2 aria-label="Seccion libre de alergenos">LIBRE DE ALERGENOS</h2></center>
-
+    <h2 aria-label="Seccion libre de alergenos">LIBRE DE ALERGENOS</h2>
+    <div class="menus">
     @if(count($allergens)!=0)
     @foreach ($allergens as $allergen)
     <div class="cajaMenu">
@@ -45,6 +45,7 @@
     @else
     <p>No hay menus por el momento</p>
     @endif
+</div>
     @include('includes.footer')
   </body>
 </html>

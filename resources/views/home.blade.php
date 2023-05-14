@@ -11,24 +11,21 @@
 
 <body>
     @include('includes.nav')
-    <section class="hero-section">
-        <div class="hero-image">
-            <img src="{{ asset('images/slide1.jpg') }}" alt="Imagen de la hero section">
-            <img src="{{ asset('images/slide2.jpg') }}" alt="Imagen de la hero section">
-            <img src="{{ asset('images/slide3.jpg') }}" alt="Imagen de la hero section">
-            <img src="{{ asset('images/slide4.jpg') }}" alt="Imagen de la hero section">
-            <img src="{{ asset('images/slide5.jpg') }}" alt="Imagen de la hero section">
+    <section id="slideshow">
+        <img src="{{ asset('images/alergBackground.jpg') }}" alt="Imagen1">
+        <img src="{{ asset('images/bebidaBackground.jpg') }}" alt="Imagen2">
+        <img src="{{ asset('images/carneBackground.jpg') }}" alt="Imagen3">
+        <img src="{{ asset('images/ensaladaBackground.jpg') }}" alt="Imagen4">
+        <img src="{{ asset('images/hamburguesaBackground.jpg') }}" alt="Imagen5">
 
-        </div>
+
     </section>
 
-    <center>
         <h2>CONOCE NUESTROS PLATOS</h2>
-    </center>
 
     <div class="button-panel">
         <div class="button-row">
-            <a aria-label="Hamburguesas" href={{ route('burgers') }} id="butHam">Hamburguesa</a>
+            <a aria-label="Hamburguesas" href="{{ route('burgers') }}" id="butHam">Hamburguesa</a>
             <a aria-label="Entrantes" href={{ route('sides') }} id="butPat">Entrantes</a>
             <a aria-label="Carnes a la brasa" href={{ route('meats') }} id="butCarn">Carnes</a>
         </div>
@@ -40,22 +37,24 @@
     </div>
     @include('includes.footer')
     <script>
-        const images = document.querySelectorAll('.hero-image img');
+        const slideshow = document.getElementById("slideshow");
+        const images = slideshow.getElementsByTagName("img");
         let currentIndex = 0;
 
         // Mostrar la primera imagen
-        images[currentIndex].classList.add('active');
+        images[currentIndex].style.opacity = "1";
 
-        setInterval(() => {
+        function showNextImage() {
             // Ocultar la imagen actual
-            images[currentIndex].classList.remove('active');
+            images[currentIndex].style.opacity = "0";
 
             // Obtener el índice de la siguiente imagen
             currentIndex = (currentIndex + 1) % images.length;
 
             // Mostrar la siguiente imagen
-            images[currentIndex].classList.add('active');
-        }, 5000);
+            images[currentIndex].style.opacity = "1";
+        }
+        setInterval(showNextImage, 5000);
     </script>
 </body>
 

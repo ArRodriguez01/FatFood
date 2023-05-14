@@ -71,9 +71,10 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Menu $menu)
+    public function edit($id)
     {
-
+        $menu = Menu::find($id);
+        return view('gmenu.editmenu', compact('menu'));
     }
 
     /**
@@ -82,9 +83,9 @@ class MenuController extends Controller
     public function update(Request $request, Menu $item)
     {
         $this->authorize('update', $item);
+        $id=$request->id;
+        $menu=Menu::findOrFail($id);
 
-       $menu=Menu::find($item);
-       dd($menu);
 
         $validatedData = $request->validate([
             'name' => 'required|string|max:50',
@@ -94,25 +95,26 @@ class MenuController extends Controller
             'price' => 'required|numeric',
             'url' => 'required|string|max:255'
         ]);
+        $menu->name = $validatedData['name'];
 
-        $item->name = $validatedData['name'];
-        $item->ingredientes = $validatedData['ingredientes'];
-        $item->section = $validatedData['section'];
-        $item->allergens = isset($validatedData['allergens']) ? true : false;
-        $item->price = $validatedData['price'];
-        $item->url = $validatedData['url'];
-        $item->save();
+        $menu->ingredientes = $validatedData['ingredientes'];
+        $menu->section = $validatedData['section'];
+        $menu->allergens = isset($validatedData['allergens']) ? true : false;
+        $menu->price = $validatedData['price'];
+        $menu->url = $validatedData['url'];
+        $menu->save();
 
-        return redirect('/menu');
+        return redirect(route('menu.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($item)
+    public function destroy(Request $request,Menu $item)
     {
-
-        $menu = Menu::find($item);
+        $this->authorize('delete', $item);
+        $id=$request->id;
+        $menu=Menu::findOrFail($id);
         if ($menu) {
             $menu->delete();
         }

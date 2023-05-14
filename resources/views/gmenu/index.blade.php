@@ -9,22 +9,36 @@
   </head>
   @include('includes.nav')
   <body>
-        <form action="{{ route('menu.store') }}" method="POST">
+  <form action="{{ route('menu.store') }}" method="POST">
         @csrf
-            <label class='text-center'>Image</label>
-            <label class='text-center'>Name</label>
-            <label class='text-center'>Ingredients</label>
-            <label class='text-center'>Price</label>
-            <label class='text-center'>Seccion</label>
-            <label class='text-center'>Allergens</label><br>
-            <input  class='form-control text-center' type="text" name="url" id="url">
-            <input  class='form-control text-center' type="text" name="name" id="name">
-            <input  class='form-control text-center' type="text" name="ingredientes" id="ingredientes">
-            <input  class='form-control text-center' type="text" name="price" id="price">
-            <input  class='form-control text-center' type="text" name="section" id="section">
-            <input class='form-control text-center' type="checkbox" name="allergens" id="allergens" value="0">
-            <button type='submit' class='btn btn-info btn-just-icon btn-sm'><i>+</i></button>
-        </form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="url">Image</label>
+            <input class="form-control" type="text" name="url" id="url">
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" name="name" id="name">
+          </div>
+          <div class="form-group">
+            <label for="ingredientes">Ingredients</label>
+            <input class="form-control" type="text" name="ingredientes" id="ingredientes">
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input class="form-control" type="text" name="price" id="price">
+          </div>
+          <div class="form-group">
+            <label for="section">Section</label>
+            <input class="form-control" type="text" name="section" id="section">
+          </div>
+          <div class="form-group">
+            <label for="allergens">Allergens</label>
+            <input class="form-control" type="checkbox" name="allergens" id="allergens" value="0">
+          </div>
+          <button type="submit" class="btn btn-info btn-just-icon btn-sm"><i>+</i></button>
+        </div>
+      </form>
         <div class="table-responsive">
     <table class="table" id="tanuncios">
     <thead>
@@ -35,34 +49,49 @@
             <th class="text-center w-25">Ingredients</th>
             <th class="text-center">Price</th>
             <th class="text-center w-25">Seccion</th>
-            <th class="text-center w-25">Allergens</th>
         </tr>
     </thead>
     <tbody>
         @foreach($menus as $item)
-        <form action="{{  route('menu.update', $item)  }}" method="POST">
+        <form action="{{  route('menu.edit', $item)}}" method="PATCH">
+        @method('patch')
         @csrf
         <tr>
-            <td class='text-center'><img src="{{$item->url}}"><br><input type="text" value='{{$item->url}}' name="url" id="url"></td>
-            <td><input type='text' class='form-control' type="text"  maxlength="100" value='{{$item->id}}' disabled name="id" id="id"></td>
-            <td class='text-center'><input class='form-control text-center' type="text" maxlength="25" value='{{$item->name}}' name="name" id="name"></td>
-            <td class='text-center'><input class='form-control text-center' type="text" value='{{$item->ingredientes}}' name="ingredientes" id="ingredientes"></td>
-            <td class='text-center'><input class='form-control text-center' type="text" value='{{$item->price}}' name="price" id="price"></td>
-            <td class='text-center'><input class='form-control text-center' type="text" value='{{$item->section}}' name="section" id="section"></td>
-            @if($item->allergens == 1)
-            <td class='text-center'><input class='form-control text-center' type="checkbox" checked name="allergens" id="allergens"></td>
-            @else
-            <td class='text-center'><input class='form-control text-center' type="checkbox" name="allergens" id="allergens"></td>
-            @endif
-            <td class='td-actions text-right'>
-                    <button type="submit">UPDATE</button>
-                </form>
-                <form action="{{  route('menu.destroy', $item)  }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">DELETE</button>
-                </form>
-            </td>
+          <td class='text-center'>
+              <div class="image-wrapper">
+                  <img src="{{$item->url}}">
+              </div>
+          </td>
+          <td>
+              <div class='form-control-static' type="text" maxlength="100">{{$item->id}}</div>
+          </td>
+          <td class='text-center'>
+              <div class='form-control-static' type="text" maxlength="25">{{$item->name}}</div>
+          </td>
+          <td class='text-center'>
+              <div class='form-control-static' type="text">{{$item->ingredientes}}</div>
+          </td>
+          <td class='text-center'>
+              <div class='form-control-static' type="text">{{$item->price}}</div>
+          </td>
+          <td class='text-center'>
+              <div class='form-control-static' type="text">{{$item->section}}</div>
+          </td>
+          <td class='text-center'>
+          </td>
+          <td class='td-actions text-right'>
+              <div class='button-wrapper'>
+                  <button class='btn btn-primary btn-sm' type="submit">UPDATE</button>
+              </div>
+              </form>
+              <div class='button-wrapper'>
+                  <form action="{{  route('menu.destroy', $item)  }}" method="POST">
+                      @csrf
+                      @method('delete')
+                      <button class='btn btn-danger btn-sm' type="submit">DELETE</button>
+                  </form>
+              </div>
+          </td>
         </tr>
         @endforeach
     </tbody>

@@ -39,7 +39,23 @@ class CartController extends Controller
         return view('carrito.index', compact('cartItems', 'total'));
     }
 
+    public function gestion(Request $request)
+    {
+        return view('gcarrito.index',[
+            'cart'=>Cart::all(),
 
+         ]);
+    }
+
+    public function cancelar(Request $request)
+    {
+        $id=$request->id;
+        $cart=Cart::findOrFail($id);
+        if ($cart) {
+            $cart->delete();
+        }
+        return redirect()->back();
+    }
 
     /**
      * Add a new element to the cart.
@@ -113,18 +129,33 @@ class CartController extends Controller
         $cart->save();
         $cart = collect($request->session()->get('cart', []));
         $request->session()->forget('cart');
-        return redirect(route('cart.index'));
+        return redirect(route('profile'));
 
 
+    }
+
+    public function destroy(Request $request,Cart $item)
+    {
+        //$this->authorize('destroy',$cart);
+        $cart = Cart::find($item);
+        dd($cart);
+        /*if ($cart) {
+            $cart->delete();
+        }*/
+        return redirect()->route('cart.show');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return view('gcarrito.index',[
+            'orders'=>Cart::all(),
+
+         ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -137,7 +168,7 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Cart $cart)
     {
 
     }

@@ -22,26 +22,30 @@
         <a aria-label="Postres" href={{route('desserts')}} id="butPost">Postres</a>
       </div>
     </div>
-    <center><h2 aria-label="Seccion de ensaladas">ENSALADAS</h2></center>
-
+    <h2>ENSALADAS</h2>
+    <div class="menus">
     @if(count($salads)!=0)
     @foreach ($salads as $salad)
     <div class="cajaMenu">
       <div class="container">
         <img src="{{ $salad->url}}" alt="Descripción de la imagen" />
         <div class="container2">
-          <p>{{ $salad->name }}</p>
+          <h1>{{ $salad->name }}</h1>
           <p>{{ $salad->ingredientes }}</p>
+          <p>{{ $salad->price }}€</p>
           @if(Auth::user())
-          <button type="submit">Añadir</button>
+          <form action="{{route('cart.add',$salad->id)}}" method="GET">
+                <button type="submit">Añadir</button>
+          </form>
           @endif
         </div>
       </div>
     </div>
     @endforeach
     @else
-    <p>No hay menus por el momento</p>
+    <p>No hay ensaladas por el momento</p>
     @endif
+    </div>
     @include('includes.footer')
   </body>
 

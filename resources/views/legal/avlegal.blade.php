@@ -9,7 +9,7 @@
   </head>
   <body>
     @include('includes.nav')
-    <b><center><h2>AVISO LEGAL</h2></center></b>
+    <h2>AVISO LEGAL</h2>
     <p>
       <b>1.- CONDICIONES GENERALES DE USO:</b> <br />
       Este Portal ha sido creado por FATFOOD S.L con carácter meramente
