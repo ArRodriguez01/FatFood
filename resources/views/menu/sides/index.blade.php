@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}"/>
+    <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
     <title>Entrantes</title>
   </head>
 
@@ -23,6 +26,7 @@
       </div>
     </div>
     <h2 aria-label="Seccion de entrantes">ENTRANTES</h2>
+    <div id="notification"></div>
     <div class="menus">
     @if(count($sides)!=0)
     @foreach ($sides as $side)
@@ -30,10 +34,11 @@
       <div class="container">
         <img src="{{ $side->url}}" alt="Descripción de la imagen" />
         <div class="container2">
-          <p>{{ $side->name }}</p>
-          <p>{{ $side->ingredientes }}</p>
+        <h1>{{ $side->name }}</h1>
+          <p id="p1">{{ $side->ingredientes }}</p>
+          <p id="p2">{{ $side->price }}€</p>
           @if(Auth::user())
-          <form action="{{route('cart.add',$side->id)}}" method="GET">
+          <form action="{{route('cart.add',$side->id)}}" method="GET" id="addForm">
             <button  type="submit">Añadir</button>
             </form>
           @endif
@@ -46,5 +51,27 @@
     @endif
     </div>
     @include('includes.footer')
+    <script>
+      var addForm = document.getElementById("addForm");
+
+      addForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+
+        showNotification("El elemento se ha añadido al carrito");
+      });
+
+      function showNotification(message) {
+        Toastify({
+          text: message,
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+          stopOnFocus: true,
+        }).showToast();
+      }
+    </script>
   </body>
 </html>

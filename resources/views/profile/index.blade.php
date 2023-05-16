@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+  <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
   <title>Home</title>
 </head>
 
@@ -15,11 +16,9 @@
     <table>
         <th>Nombre</th>
         <th>Mail</th>
-        <th>Contraseña</th>
         <tr>
-            <td><input type="text" value={{$user->name}}></td>
-            <td><input type="text" value={{$user->email}}></td>
-            <td><input type="password" value={{$user->password}}></td>
+            <td><div type="text">{{$user->name}}</div></td>
+            <td><div type="text">{{$user->email}}</div></td>
         </tr>
     </table>
     <h2>Tus pedidos</h2>

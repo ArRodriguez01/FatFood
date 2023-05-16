@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Form styles */
 .form-group label {
   display: block;
   margin-bottom: 5px;
@@ -24,8 +23,6 @@ body {
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background-color: #333;
-  color: #fff;
   margin-bottom: 10px;
 }
 
@@ -55,7 +52,6 @@ body {
   color: #fff;
 }
 
-/* Button styles */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -71,10 +67,6 @@ body {
   background-color: #007bff;
   color: #fff;
   border: none;
-}
-
-.btn-info:hover {
-  background-color: #0069d9;
 }
 
 .btn-primary {
@@ -105,7 +97,6 @@ body {
   font-size: 24px;
 }
 
-/* Table styles */
 .table {
   border-collapse: collapse;
   width: 100%;
@@ -126,8 +117,7 @@ body {
 }
 
 .table td {
-  background-color: #444;
-  color: #fff;
+  background-color: whitesmoke;
 }
 
 .table td:first-child {

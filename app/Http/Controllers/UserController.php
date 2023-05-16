@@ -60,10 +60,14 @@ class UserController extends Controller{
     {
         $this->authorize('edit', $item);
         $id=$request->id;
+        $validated=$request->validate([
+            'name'=>'required|string|max:50',
+            'email'=>'required|string|max:50',
+        ]);
         $user=User::findOrFail($id);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
         if($request->password == ""){
             $user->password=$request->passwordold;
         }else{

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
     <title>Home</title>
 </head>
 

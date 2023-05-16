@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
 </head>
 
 <body>

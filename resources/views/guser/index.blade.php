@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/gmenu.css') }}"/>
-    <title>Gestionar Users</title>
+    <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
+    <title>Gestionar Usuarios</title>
   </head>
   @include('includes.nav')
   <body>
