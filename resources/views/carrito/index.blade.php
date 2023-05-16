@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/carrete.css') }}"/>
-    <link rel="icon" type="image/png" href={{ asset('images/logo1(1).png') }}>
     <title>Tu carrito</title>
 </head>
 @include('includes.nav')
@@ -22,6 +21,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Cantidad</th>
+                    <th>Precio</th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,6 +30,7 @@
                     <tr>
                         <td>{{ $item['name'] }}</td>
                         <td>{{ $item['quantity'] }}</td>
+                        <td>{{ $item['price'] }}</td>
                         <td>
                             <a class="deletebt" href="{{ route('cart.delete', $item['menu_id']) }}">Borrar</a>
                             <a class="bt2" href="{{ route('cart.add', $item['menu_id']) }}">+</a>

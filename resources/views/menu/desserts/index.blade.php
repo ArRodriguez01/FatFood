@@ -26,7 +26,6 @@
       </div>
     </div>
     <h2>POSTRES</h2>
-    <div id="notification"></div>
     <div class="menus">
     @if(count($desserts)!=0)
     @foreach ($desserts as $dessert)
@@ -51,27 +50,5 @@
     @endif
     </div>
     @include('includes.footer')
-    <script>
-      var addForm = document.getElementById("addForm");
-
-      addForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
-
-        showNotification("El elemento se ha añadido al carrito");
-      });
-
-      function showNotification(message) {
-        Toastify({
-          text: message,
-          duration: 3000,
-          newWindow: true,
-          close: true,
-          gravity: "top",
-          position: "right",
-          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-          stopOnFocus: true,
-        }).showToast();
-      }
-    </script>
   </body>
 </html>
