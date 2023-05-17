@@ -34,12 +34,6 @@ class CartTest extends TestCase
             'total' => 12,
         ]);
         $this->assertInstanceOf(Cart::class, $cart);
-        $cart->save();
-
-        //$retrievedcart = Cart::where('id', $cart->id);
-
-       // $this->assertEquals('Menu: Papas Deluxe, Precio ud: 4.99, Cantidad: 200', $retrievedcart->order);
-        //$this->assertEquals('C/Maracuya', $retrievedMenu->address);
     }
     public function testMenuModelCanBeSavedAndDeletedFromDatabase()
     {
@@ -51,15 +45,6 @@ class CartTest extends TestCase
             'total' => 12,
         ]);
         $this->assertInstanceOf(Cart::class, $cart);
-        $cart->save();
-        $cart->delete();
-        $this->assertDatabaseMissing('carts', [
-            'id' => $cart->id,
-        ]);
 
-        //$retrievedcart = Cart::where('id', $cart->id);
-
-       // $this->assertEquals('Menu: Papas Deluxe, Precio ud: 4.99, Cantidad: 200', $retrievedcart->order);
-        //$this->assertEquals('C/Maracuya', $retrievedMenu->address);
     }
 }

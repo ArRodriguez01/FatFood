@@ -87,24 +87,17 @@ class MenuSeeder extends Seeder
         $menu->save();
 
         $menu=new Menu();
-        $menu->name="Tequeños";
-        $menu->ingredientes="Hojaldre,Queso Brie";
+        $menu->name="Alitas Adobadas";
+        $menu->ingredientes="Carne de pollo,sal,oregano,albahaca,aceite de oliva";
         $menu->section="sides";
         $menu->allergens=1;
         $menu->price=4.50;
-        $menu->url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxphdX__33qSE6vdN7XIE15g9GfouT5QI_g&usqp=CAU";
+        $menu->url="https://carnesbyrafa.es/wp-content/uploads/2021/05/16.jpg";
         $menu->save();
+
         $menu=new Menu();
-        $menu->name="Tequeños";
-        $menu->ingredientes="Hojaldre,Queso Brie";
-        $menu->section="sides";
-        $menu->allergens=1;
-        $menu->price=4.50;
-        $menu->url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxphdX__33qSE6vdN7XIE15g9GfouT5QI_g&usqp=CAU";
-        $menu->save();
-        $menu=new Menu();
-        $menu->name="Tequeños";
-        $menu->ingredientes="Hojaldre,Queso Brie";
+        $menu->name="Aros de Cebolla";
+        $menu->ingredientes="Cebolla,Harina,Huevo,Leche,Pan rallado";
         $menu->section="sides";
         $menu->allergens=1;
         $menu->price=4.50;
