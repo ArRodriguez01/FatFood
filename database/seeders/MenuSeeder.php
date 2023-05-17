@@ -281,14 +281,6 @@ class MenuSeeder extends Seeder
         $menu->url="https://www.hogarmania.com/archivos/201105/168-fideos-de-arroz-con-verduras-y-soja-xl-668x400x80xX.jpg";
         $menu->save();
 
-        $menu=new Menu();
-        $menu->name="Verdurillada";
-        $menu->ingredientes="Verduras de la huerta local";
-        $menu->section="allergens";
-        $menu->allergens=0;
-        $menu->price=12.65;
-        $menu->url="https://imag.bonviveur.com/emplatado-de-la-parrillada-de-verduras-a-la-plancha.jpg";
-        $menu->save();
 
 
         $menu=new Menu();
