@@ -100,8 +100,8 @@ class MenuSeeder extends Seeder
         $menu->ingredientes="Cebolla,Harina,Huevo,Leche,Pan rallado";
         $menu->section="sides";
         $menu->allergens=1;
-        $menu->price=4.50;
-        $menu->url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxphdX__33qSE6vdN7XIE15g9GfouT5QI_g&usqp=CAU";
+        $menu->price=3.30;
+        $menu->url="https://us.123rf.com/450wm/nitr/nitr1411/nitr141100010/33242272-plato-de-aros-de-cebolla-en-el-fondo-blanco.jpg?ver=6";
         $menu->save();
     }
 }
