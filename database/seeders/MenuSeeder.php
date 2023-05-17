@@ -74,7 +74,7 @@ class MenuSeeder extends Seeder
         $menu->section="sides";
         $menu->allergens=1;
         $menu->price=4.20;
-        $menu->url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxphdX__33qSE6vdN7XIE15g9GfouT5QI_g&usqp=CAU";
+        $menu->url="https://img.freepik.com/fotos-premium/cono-papas-fritas-rusticas-llevar_461960-1872.jpg?w=2000";
         $menu->save();
 
         $menu=new Menu();
@@ -83,7 +83,7 @@ class MenuSeeder extends Seeder
         $menu->section="sides";
         $menu->allergens=1;
         $menu->price=4.90;
-        $menu->url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxphdX__33qSE6vdN7XIE15g9GfouT5QI_g&usqp=CAU";
+        $menu->url="https://burguermix.com/wp-content/uploads/2021/06/patatas_bacon_queso1.jpg";
         $menu->save();
 
         $menu=new Menu();
