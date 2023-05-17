@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
         <label for="allergens">Allergens</label>
-        <input required class="form-control" type="checkbox" name="allergens" id="allergens" value="0">
+        <input  class="form-control" type="checkbox" name="allergens" id="allergens" value="0">
         </div>
         <button type="submit" class="btn btn-info btn-just-icon btn-sm"><i>+</i></button>
 
