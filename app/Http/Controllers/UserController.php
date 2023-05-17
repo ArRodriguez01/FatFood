@@ -63,16 +63,17 @@ class UserController extends Controller{
         $validated=$request->validate([
             'name'=>'required|string|max:50',
             'email'=>'required|string|max:50',
+            'password'=>'string|max:50'
         ]);
         $user=User::findOrFail($id);
+        if(strlen(trim($validated['password']))==0){
+            $user->password=$request->passwordold;
 
+        }else{
+            $user->password = Hash::make($validated['password']);
+        }
         $user->name = $validated['name'];
         $user->email = $validated['email'];
-        if($request->password == ""){
-            $user->password=$request->passwordold;
-        }else{
-            $user->password = Hash::make($request->password);
-        }
         $user->save();
 
         return redirect('/user');

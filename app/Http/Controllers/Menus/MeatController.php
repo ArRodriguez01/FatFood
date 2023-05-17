@@ -8,6 +8,11 @@ use App\Models\Menu;
 
 class MeatController extends Controller
 {
+    /**
+     * Return the view with the object of the db
+     *
+     * @return void
+     */
     public function index()
     {
         $meats=Menu::where('section','meats')->get();

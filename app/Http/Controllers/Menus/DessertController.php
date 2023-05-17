@@ -9,6 +9,11 @@ use App\Models\Menu;
 
 class DessertController extends Controller
 {
+    /**
+     * Return the view with the object of the db
+     *
+     * @return void
+     */
     public function index()
     {
         $desserts=Menu::where('section','desserts')->get();

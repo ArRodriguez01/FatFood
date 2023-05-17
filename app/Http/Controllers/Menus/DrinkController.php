@@ -8,6 +8,11 @@ use App\Models\Menu;
 
 class DrinkController extends Controller
 {
+    /**
+     * Return the view with the object of the db
+     *
+     * @return void
+     */
     public function index()
     {
         $drinks=Menu::where('section','drinks')->get();

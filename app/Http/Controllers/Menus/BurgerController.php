@@ -8,6 +8,11 @@ use App\Models\Menu;
 
 class BurgerController extends Controller
 {
+    /**
+     * Return the view with the object of the db
+     *
+     * @return void
+     */
     public function index()
     {
 

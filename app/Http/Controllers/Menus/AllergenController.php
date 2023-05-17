@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class AllergenController extends Controller
 {
+    /**
+     * Return the view with the object of the db
+     *
+     * @return void
+     */
     public function index()
     {
         $allergens=Menu::where('section','allergens')->get();
