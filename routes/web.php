@@ -74,7 +74,6 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cartgestion','gestion')->name('cart.gestion');
     Route::delete('/cartcancelar/{id}','cancelar')->name('cart.cancelar');
     Route::put('/cart','update')->name('cart.update');
-    Route::delete('/cartdestroy/{cart}','destroy')->name('cart.destroy');
 })->middleware(['auth','verified']);
 
 

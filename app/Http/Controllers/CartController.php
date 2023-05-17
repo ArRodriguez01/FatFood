@@ -38,7 +38,12 @@ class CartController extends Controller
         $request->session()->put('cartItems', $cartItems);
         return view('carrito.index', compact('cartItems', 'total'));
     }
-
+    /**
+     * Show the management index
+     *
+     * @param Request $request
+     * @return void
+     */
     public function gestion(Request $request)
     {
         return view('gcarrito.index',[
@@ -46,9 +51,15 @@ class CartController extends Controller
 
          ]);
     }
-
+    /**
+     * Delete the object in the db
+     *
+     * @param Request $request
+     * @return void
+     */
     public function cancelar(Request $request)
     {
+
         $id=$request->id;
         $cart=Cart::findOrFail($id);
         if ($cart) {
@@ -75,7 +86,7 @@ class CartController extends Controller
         return redirect()->back();
     }
    /**
-    * Undocumented function
+    * Remove an item from the cart array
     *
     * @param Request $request
     * @param string $id
@@ -93,6 +104,7 @@ class CartController extends Controller
         $request->session()->put('cart', $cart);
         return redirect()->back();
     }
+
     /**
      * Remove an item from the cart
      *
@@ -113,6 +125,9 @@ class CartController extends Controller
     public function store(Request $request,Cart $cart)
     {
         $this->authorize('create',$cart);
+        $validated=$request->validate([
+            'address'=>'required|string|max:50',
+        ]);
         $cart=new Cart;
         $total=0;
         $orden="";
@@ -123,7 +138,7 @@ class CartController extends Controller
         }
         $cart->order=$orden;
         $cart->user_id=Auth::user()->id;
-        $cart->address=$request->address;
+        $cart->address=$validated['address'];
         $cart->total=$total;
         $cart->payment=$request->payment;
         $cart->save();
@@ -133,18 +148,6 @@ class CartController extends Controller
 
 
     }
-
-    public function destroy(Request $request,Cart $item)
-    {
-        //$this->authorize('destroy',$cart);
-        $cart = Cart::find($item);
-        dd($cart);
-        /*if ($cart) {
-            $cart->delete();
-        }*/
-        return redirect()->route('cart.show');
-    }
-
     /**
      * Display the specified resource.
      */
@@ -156,25 +159,5 @@ class CartController extends Controller
          ]);
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cart $cart)
-    {
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
 
 }
