@@ -15,7 +15,7 @@ class AllergenController extends Controller
      */
     public function index()
     {
-        $allergens=Menu::where('section','allergens')->get();
+        $allergens=Menu::where('allergens',false)->get();
         if($allergens){
             return view('menu.allergen.index',[
                 'allergens'=>$allergens
